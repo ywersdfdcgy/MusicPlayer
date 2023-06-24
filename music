@@ -1,0 +1,32 @@
+import os
+import random
+
+class MusicPlayer:
+    def __init__(self):
+        self.playlist = []
+
+    def add_song(self, song_path):
+        if os.path.exists(song_path):
+            self.playlist.append(song_path)
+            print(f"Added song: {song_path}")
+        else:
+            print(f"Song path does not exist: {song_path}")
+
+    def play(self):
+        if not self.playlist:
+            print("No songs in the playlist.")
+        else:
+            random.shuffle(self.playlist)
+            print("Playing music...")
+            for song in self.playlist:
+                print(f"Now playing: {song}")
+                # Code to play the song
+
+if __name__ == '__main__':
+    player = MusicPlayer()
+
+    player.add_song("song1.mp3")
+    player.add_song("song2.mp3")
+    player.add_song("song3.mp3")
+
+    player.play()
